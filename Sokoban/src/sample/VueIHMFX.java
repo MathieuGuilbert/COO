@@ -11,30 +11,32 @@ import java.io.FileNotFoundException;
 public class VueIHMFX {
 
     CommandeTabInt commandeGetEtat;
-    Button[] myButton;
+    Button[][] myButton;
     GridPane gridPane = new GridPane();
 
-    Image[] chameau = new Image[]{
-            new Image(new FileInputStream("chameau0.gif"),80,80,false,false),
-            new Image(new FileInputStream("chameau1.png"),80,80,false,false),
-            new Image(new FileInputStream("chameau2.jpg"),80,80,false,false)
+    Image[] sokoban = new Image[]{
+            new Image(new FileInputStream("Character4.png"),40,60,false,false),
+            new Image(new FileInputStream("blanc.png"),40,60,false,false),
     };
 
 
     public VueIHMFX(Controleur controleur) throws FileNotFoundException {
         commandeGetEtat = controleur.commandeGetEtat();
-        myButton = new Button[commandeGetEtat.exec().length];
+        myButton = new Button[commandeGetEtat.exec().length][commandeGetEtat.exec()[0].length];
         for (int i=0;i<commandeGetEtat.exec().length;i++) {
-            myButton[i] = new Button();
-            myButton[i].setMinSize(80,80);
-            gridPane.add(myButton[i],i,0);
+            for (int j=0; j<commandeGetEtat.exec()[i].length; j++){
+                myButton[i][j] = new Button();
+                myButton[i][j].setMinSize(50,50);
+                gridPane.add(myButton[i][j],i,j);
+            }
         }
         dessine();
     }
-
     public void dessine() {
         for (int i=0;i<commandeGetEtat.exec().length;i++) {
-            myButton[i].setGraphic(new ImageView(chameau[commandeGetEtat.exec()[i]]));
+            for (int j=0; j<commandeGetEtat.exec()[i].length; j++){
+                myButton[i][j].setGraphic(new ImageView(sokoban[commandeGetEtat.exec()[i][j]]));
+            }
         }
     }
 }

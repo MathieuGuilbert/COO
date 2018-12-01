@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.util.Pair;
+
 import java.util.ArrayList;
 
 public class Controleur implements Sujet {
@@ -29,8 +31,20 @@ public class Controleur implements Sujet {
             observateur.actualise();
     }
 
-    public void move(int x) {
-        facadeModele.move(x);
+    public void right(int[][] etat, int x, int y) {
+        facadeModele.right(etat,x,y);
+        notifie();
+    }
+    public void left(int[][] etat, int x, int y) {
+        facadeModele.left(etat,x,y);
+        notifie();
+    }
+    public void up(int[][] etat, int x, int y) {
+        facadeModele.up(etat,x,y);
+        notifie();
+    }
+    public void down(int[][] etat, int x, int y) {
+        facadeModele.down(etat,x,y);
         notifie();
     }
 
@@ -42,9 +56,11 @@ public class Controleur implements Sujet {
     public CommandeTabInt commandeGetEtat() {
         return new CommandeTabInt() {
             @Override
-            public int[] exec() {
+            public int[][] exec() {
                 return facadeModele.getEtat();
             }
         };
     }
+
+    public Pair<Integer, Integer> positionSoko(int[][] exec) { return facadeModele.positionSoko(exec); }
 }
