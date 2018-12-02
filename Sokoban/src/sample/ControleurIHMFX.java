@@ -24,7 +24,7 @@ public class ControleurIHMFX {
 
         reset.setOnAction(new ActionReset());
 
-        Pair<Integer,Integer> pos = controleur.positionSoko(controleur.commandeGetEtat().exec());
+        Pair<Integer,Integer> pos = controleur.positionSoko();
         int x = pos.getKey(); int y = pos.getValue();
         up.setOnAction(new Up(x,y));
         down.setOnAction(new Down(x,y));
@@ -39,51 +39,43 @@ public class ControleurIHMFX {
 
     }
     class Right implements EventHandler<ActionEvent> {
-        int[][] etat; int x; int y;
+        int x; int y;
 
-        Right(int x, int y) {
-            this.etat = controleur.commandeGetEtat().exec(); this.x = x; this.y = y;
-        }
+        Right(int x, int y) { this.x = x; this.y = y; }
 
         @Override
         public void handle(ActionEvent event) {
-            controleur.right(etat,x,y);
+            controleur.right(x,y);
         }
     }
     class Left implements EventHandler<ActionEvent> {
-        int[][] etat; int x; int y;
+       int x; int y;
 
-        Left(int x, int y) {
-            this.etat = controleur.commandeGetEtat().exec(); this.x = x; this.y = y;
-        }
+        Left(int x, int y) { this.x = x; this.y = y;}
 
         @Override
         public void handle(ActionEvent event) {
-            controleur.left(etat,x,y);
+            controleur.left(x,y);
         }
     }
     class Up implements EventHandler<ActionEvent> {
-        int[][] etat; int x; int y;
+        int x; int y;
 
-        Up(int x, int y) {
-            this.etat = controleur.commandeGetEtat().exec(); this.x = x; this.y = y;
-        }
+        Up(int x, int y) { this.x = x; this.y = y; }
 
         @Override
         public void handle(ActionEvent event) {
-            controleur.up(etat,x,y);
+            controleur.up(x,y);
         }
     }
     class Down implements EventHandler<ActionEvent> {
-        int[][] etat; int x; int y;
+        int x; int y;
 
-        Down(int x, int y) {
-            this.etat = controleur.commandeGetEtat().exec(); this.x = x; this.y = y;
-        }
+        Down(int x, int y) { this.x = x; this.y = y; }
 
         @Override
         public void handle(ActionEvent event) {
-            controleur.down(etat,x,y);
+            controleur.down(x,y);
         }
     }
 }
