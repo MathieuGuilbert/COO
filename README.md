@@ -10,4 +10,4 @@ Différents états:
 5: Objectif+Caisse
 6: Objectif+Soko
 
-
+stocker differentes étapes du jeu via LinkedList 
