@@ -24,12 +24,11 @@ public class ControleurIHMFX {
 
         reset.setOnAction(new ActionReset());
 
-        Pair<Integer,Integer> pos = controleur.positionSoko();
-        int x = pos.getKey(); int y = pos.getValue();
-        up.setOnAction(new Up(x,y));
-        down.setOnAction(new Down(x,y));
-        left.setOnAction(new Left(x,y));
-        right.setOnAction(new Right(x,y));
+        up.setOnAction(new Up());
+        down.setOnAction(new Down());
+        left.setOnAction(new Left());
+        right.setOnAction(new Right());
+
     }
 
     class ActionReset implements EventHandler<ActionEvent> {
@@ -39,43 +38,15 @@ public class ControleurIHMFX {
 
     }
     class Right implements EventHandler<ActionEvent> {
-        int x; int y;
-
-        Right(int x, int y) { this.x = x; this.y = y; }
-
-        @Override
-        public void handle(ActionEvent event) {
-            controleur.right(x,y);
-        }
+        public void handle(ActionEvent event) {  controleur.right();}
     }
     class Left implements EventHandler<ActionEvent> {
-       int x; int y;
-
-        Left(int x, int y) { this.x = x; this.y = y;}
-
-        @Override
-        public void handle(ActionEvent event) {
-            controleur.left(x,y);
-        }
+        public void handle(ActionEvent event) {  controleur.left();}
     }
     class Up implements EventHandler<ActionEvent> {
-        int x; int y;
-
-        Up(int x, int y) { this.x = x; this.y = y; }
-
-        @Override
-        public void handle(ActionEvent event) {
-            controleur.up(x,y);
-        }
+        public void handle(ActionEvent event) {  controleur.up();}
     }
     class Down implements EventHandler<ActionEvent> {
-        int x; int y;
-
-        Down(int x, int y) { this.x = x; this.y = y; }
-
-        @Override
-        public void handle(ActionEvent event) {
-            controleur.down(x,y);
-        }
+        public void handle(ActionEvent event) {  controleur.down();}
     }
 }

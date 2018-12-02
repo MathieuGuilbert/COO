@@ -17,6 +17,7 @@ public class VueIHMFX {
     Image[] sokoban = new Image[]{
             new Image(new FileInputStream("Character4.png"),40,60,false,false),
             new Image(new FileInputStream("blanc.png"),40,60,false,false),
+            new Image(new FileInputStream("Wall.png"),40,60,false,false),
     };
 
 

@@ -31,20 +31,20 @@ public class Controleur implements Sujet {
             observateur.actualise();
     }
 
-    public void right(int x, int y) {
-        facadeModele.right(x,y);
+    public void right() {
+        facadeModele.right();
         notifie();
     }
-    public void left(int x, int y) {
-        facadeModele.left(x,y);
+    public void left() {
+        facadeModele.left();
         notifie();
     }
-    public void up(int x, int y) {
-        facadeModele.up(x,y);
+    public void up() {
+        facadeModele.up();
         notifie();
     }
-    public void down(int x, int y) {
-        facadeModele.down(x,y);
+    public void down() {
+        facadeModele.down();
         notifie();
     }
 
@@ -61,6 +61,4 @@ public class Controleur implements Sujet {
             }
         };
     }
-
-    public Pair<Integer, Integer> positionSoko() { return facadeModele.positionSoko(); }
 }

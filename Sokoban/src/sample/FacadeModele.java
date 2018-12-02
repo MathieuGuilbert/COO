@@ -9,10 +9,8 @@ public class FacadeModele {
 
     public void reset() { modele.reset(); }
 
-    public void right(int x, int y) { modele.right(x,y); }
-    public void left(int x, int y) { modele.left(x,y); }
-    public void up(int x, int y) { modele.up(x,y); }
-    public void down(int x, int y) { modele.down(x,y); }
-
-    public Pair<Integer, Integer> positionSoko() { return modele.positionSoko(); }
+    public void right() { modele.right(); }
+    public void left() { modele.left(); }
+    public void up() { modele.up(); }
+    public void down() { modele.down(); }
 }
