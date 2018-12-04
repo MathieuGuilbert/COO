@@ -2,13 +2,14 @@ package sample;
 
 import javafx.util.Pair;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Controleur implements Sujet {
     private static Controleur singleton;
 
 
-    public static Controleur getControleur() {
+    public static Controleur getControleur() throws IOException {
         if (singleton == null)
             singleton = new Controleur(new FacadeModele());
         return singleton;

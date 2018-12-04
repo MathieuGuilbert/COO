@@ -11,8 +11,8 @@ import java.util.ArrayList;
 public class MonteurScene {
     ArrayList<Region> bas = new ArrayList<Region>();
     Region centre;
-    int largeur = 800;
-    int hauteur = 400;
+    int largeur = 1000;
+    int hauteur = 700;
 
     public MonteurScene setLargeur(int l){
         largeur=l;
@@ -55,7 +55,7 @@ public class MonteurScene {
             gridPane.setPadding(new Insets(10, 10, 10, 10));
             int i=0;
             for (Region n:bas) {
-                n.setMinSize(largeur/bas.size(),hauteur/8);
+                n.setMinSize(largeur/bas.size(),50);
                 gridPaneBas.add(n,i,0);
                 i++;
             }

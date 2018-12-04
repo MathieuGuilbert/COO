@@ -37,8 +37,8 @@ public class IHMFX extends Application implements Observateur {
                 ajoutBas(controleurIHMFX.down).
                 ajoutBas(controleurIHMFX.left).
                 ajoutBas(controleurIHMFX.right).
-                setLargeur(800).
-                setHauteur(500).
+                setLargeur(1000).
+                setHauteur(700).
                 retourneScene();
 
         primaryStage.setScene(scene);
@@ -47,8 +47,6 @@ public class IHMFX extends Application implements Observateur {
         primaryStage.show();
     }
 
-    public void lance() {
-        launch(new String[]{});
-    }
+    public void lance() { launch(new String[]{}); }
 }
 
