@@ -3,7 +3,9 @@ package sample;
 import javafx.util.Pair;
 
 import java.io.IOException;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.*;
 
 public class Controleur implements Sujet {
     private static Controleur singleton;
@@ -28,8 +30,10 @@ public class Controleur implements Sujet {
 
     @Override
     public void notifie() {
-        for (Observateur observateur:observateurs)
-            observateur.actualise();
+        for (Observateur observateur:observateurs) {
+        	observateur.actualise();
+        	System.out.println(facadeModele.gameOver());
+        }
     }
 
     public void right() {

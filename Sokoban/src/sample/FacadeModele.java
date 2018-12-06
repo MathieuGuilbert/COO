@@ -13,4 +13,5 @@ public class FacadeModele {
     public void left() { modele.left(); }
     public void up() { modele.up(); }
     public void down() { modele.down(); }
+    public boolean gameOver() { return modele.gameOver(); } 
 }

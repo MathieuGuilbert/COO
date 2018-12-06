@@ -38,7 +38,7 @@ public class IHMFX extends Application implements Observateur {
                 ajoutBas(controleurIHMFX.left).
                 ajoutBas(controleurIHMFX.right).
                 setLargeur(1000).
-                setHauteur(700).
+                setHauteur(800).
                 retourneScene();
 
         primaryStage.setScene(scene);
