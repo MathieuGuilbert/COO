@@ -1,6 +1,14 @@
 # COO
 Projet de COO 
 
+charles = lecture fichier
+maelys = button
+anthony = décoration liste
+mathieu = décorateur nb coup
+
+undo redo / fenêtre de victoire
+Bonus : Bot
+
 Différents états:             
 0=Soko
 1=Vide
