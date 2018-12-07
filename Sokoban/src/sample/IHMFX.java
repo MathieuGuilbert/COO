@@ -31,27 +31,22 @@ public class IHMFX extends Application implements Observateur {
         ControleurIHMFX controleurIHMFX = new ControleurIHMFX(controleur,vue);
         vue.gridPane.setAlignment(Pos.CENTER);
 
+
         /* montage de la scene */
         MonteurScene monteurScene = new MonteurScene();
 
         Scene scene = monteurScene.
                 setCentre(vue.gridPane).
                 ajoutBas(controleurIHMFX.reset).
-//                ajoutBas(controleurIHMFX.up).
-//                ajoutBas(controleurIHMFX.down).
-//                ajoutBas(controleurIHMFX.left).
-//                ajoutBas(controleurIHMFX.right).
                 setLargeur(1000).
-                setHauteur(800).
+                setHauteur(750).
                 retourneScene();
 
         primaryStage.setScene(scene);
-
         primaryStage.setTitle("Sokoban");
         primaryStage.show();
 
-        vue.gridPane.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
+        monteurScene.gridPane.setOnKeyPressed(new EventHandler<KeyEvent>() {
             public void handle(KeyEvent event) {
                 KeyCode input = event.getCode();
                 if (input.equals(KeyCode.LEFT)) {
@@ -66,7 +61,7 @@ public class IHMFX extends Application implements Observateur {
                 vue.dessine();
             }
         });
-        vue.gridPane.requestFocus();
+        monteurScene.gridPane.requestFocus();
     }
 
     public void lance() { launch(new String[]{}); }

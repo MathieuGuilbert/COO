@@ -9,10 +9,11 @@ import javafx.scene.layout.Region;
 import java.util.ArrayList;
 
 public class MonteurScene {
+    GridPane gridPane;
     ArrayList<Region> bas = new ArrayList<Region>();
     Region centre;
     int largeur = 1000;
-    int hauteur = 700;
+    int hauteur = 750;
 
     public MonteurScene setLargeur(int l){
         largeur=l;
@@ -34,9 +35,10 @@ public class MonteurScene {
         return this;
     }
 
+
     Scene retourneScene() {
         assert (centre !=null);
-        GridPane gridPane = new GridPane();
+        gridPane = new GridPane();
 
         gridPane.setAlignment(Pos.CENTER);
         gridPane.add(centre,0,0);
