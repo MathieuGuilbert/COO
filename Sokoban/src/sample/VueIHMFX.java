@@ -15,13 +15,13 @@ public class VueIHMFX {
     GridPane gridPane = new GridPane();
 
     Image[] sokoban = new Image[]{
-            new Image(new FileInputStream("Soko.png"),40,60,false,false), /*etat 0*/
-            new Image(new FileInputStream("blanc.png"),50,60,false,false), /*etat 1*/
-            new Image(new FileInputStream("Wall.png"),50,60,false,false), /*etat 2*/
+            new Image(new FileInputStream("Soko.png"),40,50,false,false), /*etat 0*/
+            new Image(new FileInputStream("blanc.png"),50,50,false,false), /*etat 1*/
+            new Image(new FileInputStream("Wall.png"),50,50,false,false), /*etat 2*/
             new Image(new FileInputStream("Caisse.png"),45,45,false,false), /*etat 3*/
             new Image(new FileInputStream("Point.png"),25,25,false,false), /*etat 4*/
             new Image(new FileInputStream("Caisse+Point.png"),45,45,false,false), /*etat 5*/
-            new Image(new FileInputStream("Soko+Point.png"),40,60,false,false), /*etat 6*/
+            new Image(new FileInputStream("Soko+Point.png"),40,50,false,false), /*etat 6*/
     };
 
 
