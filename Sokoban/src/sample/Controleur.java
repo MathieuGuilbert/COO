@@ -32,7 +32,6 @@ public class Controleur implements Sujet {
     public void notifie() {
         for (Observateur observateur:observateurs) {
         	observateur.actualise();
-        	System.out.println(facadeModele.gameOver());
         }
     }
 

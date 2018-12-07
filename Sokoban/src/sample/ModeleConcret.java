@@ -14,7 +14,6 @@ public class ModeleConcret implements Modele {
             {{2,2,2,2,2},{2,1,1,1,2},{2,1,0,1,2},{2,1,3,1,2},{2,1,4,1,2},{2,2,2,2,2}};
 
     public int[][] getEtat() {return etat; }
-    ArrayList<int[][]> listeEtat = new ArrayList<int[][]>();
     
     //Retourne la position de soko dans le tableau etat sous la forme <x,y> (x = colonne, y = y = ligne)
     public Pair<Integer, Integer> positionSoko(){
@@ -89,7 +88,6 @@ public class ModeleConcret implements Modele {
 
             }
         }
-        addList();
     }
     //Déplace Soko d'une case à gauche en changeant les données du tableau etat
     public void left() {
@@ -151,7 +149,6 @@ public class ModeleConcret implements Modele {
                 }
             }
         }
-        addList();
     }
     //Déplace Soko d'une case en haut en changeant les données du tableau etat
     public void up() {
@@ -213,7 +210,6 @@ public class ModeleConcret implements Modele {
                 }
             }
         }
-        addList();
     }
     //Déplace Soko d'une case en bas en changeant les données du tableau etat
     public void down() {
@@ -275,32 +271,8 @@ public class ModeleConcret implements Modele {
                 }
             }
         }
-        addList();
     }
-    
-    public void addList() {
-    	listeEtat.add(this.etat.clone());
-    }
-    public boolean gameOver(){
-    	for(int i=0;i<etat.length;i++) {
-    		for(int j=0;j<etat[i].length;j++) {
-    			if(etat[i][j]==3) {
-    				return false;
-    			}
-    		}
-    	}
-    	Iterator it = listeEtat.iterator();
-    	while(it.hasNext()) {
-    		int[][] tmp = (int[][]) it.next();
-    		for(int i = 0;i<tmp.length;i++) {
-    			for(int j = 0;j<tmp[i].length;j++) {
-    				System.out.print(tmp[i][j] + " / ");
-    			}
-    			System.out.println(" ");
-    		}	
-    	}
-    	return true;
-    }
+
     
     @Override
     public void reset() {

@@ -9,5 +9,4 @@ public interface Modele {
     public void up();
     public void down();
     public void reset();
-    public boolean gameOver();
 }
