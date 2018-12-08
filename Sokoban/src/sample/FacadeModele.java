@@ -3,7 +3,7 @@ package sample;
 import javafx.util.Pair;
 
 public class FacadeModele {;
-    ModeleListe modele= new ModeleListe(new ModeleConcret());
+    ModeleListe modele= new ModeleListe( new ModeleNbCoup( new ModeleConcret()) );
     
     public int[][] getEtat() { return modele.getEtat(); }
 
@@ -13,4 +13,10 @@ public class FacadeModele {;
     public void left() { modele.left(); }
     public void up() { modele.up(); }
     public void down() { modele.down(); }
+
+    public int nbCoup() {
+        return modele.getNbCoup();
+    }
+
+
 }

@@ -65,4 +65,16 @@ public class Controleur implements Sujet {
             }
         };
     }
+
+    public CommandeInt commandeNbCoup() {
+        return new CommandeInt() {
+            @Override
+            public int exec() {
+                return facadeModele.nbCoup();
+            }
+        };
+    }
+
+
+
 }
