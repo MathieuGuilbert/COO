@@ -16,8 +16,6 @@ public class ModeleNbCoup implements Modele {
         return nbCoup;
     }
 
-
-
     public void reset() {
         nbCoup=0;
         modele.reset();
