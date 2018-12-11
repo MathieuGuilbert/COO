@@ -1,8 +1,6 @@
 # COO
 Projet de COO 
 
-DERNIER COMMIT: ajout du modeleNbCoup, avec la VueNbCoup et et les modif correspondantes
-
 Charles = lecture fichier / Maëlys = fenêtre de victoire / Anthony = décoration liste / Mathieu = décorateur nb coup
 
 undo,redo
