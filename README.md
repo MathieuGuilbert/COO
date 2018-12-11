@@ -1,7 +1,8 @@
 # COO
 Projet de COO 
 
-Charles = lecture fichier+Menu niveaux+Undo-Redo / Maëlys = fenêtre de victoire+maj bool / Anthony = ? / Mathieu = décorateur nb coup+nb caisse
+Charles = lecture fichier+Menu niveaux+nom auteur ? / Maëlys = fenêtre de victoire+maj bool / Anthony = ? / Mathieu = décorateur nb coup+nb caisse
+Undo-Redo: Anthony 
 
 Bonus : Bot
 
