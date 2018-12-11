@@ -15,12 +15,10 @@ public class ControleurIHMFX {
 
         reset = new Button("Reset");
         reset.setOnAction(new ActionReset());
+
     }
 
     class ActionReset implements EventHandler<ActionEvent> {
-        public void handle(ActionEvent event) {
-            controleur.reset();
-
-        }
+        public void handle(ActionEvent event) {  controleur.reset(); }
     }
 }

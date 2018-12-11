@@ -1,7 +1,5 @@
 package sample;
 
-import javafx.util.Pair;
-
 public class FacadeModele {;
     ModeleListe modele= new ModeleListe( new ModeleNbCoup( new ModeleConcret()) );
     
@@ -14,9 +12,12 @@ public class FacadeModele {;
     public void up() { modele.up(); }
     public void down() { modele.down(); }
 
+    public void gameOver() { modele.gameOver(getEtat());}
+    public boolean getGameOver() { return modele.getGameOver();}
+    public void setGameOver(boolean b) { modele.setGameOver(b);}
+
     public int nbCoup() {
         return modele.getNbCoup();
     }
-
 
 }

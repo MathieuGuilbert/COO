@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class ModeleListe implements Modele{
 	ArrayList<int[][]> listeEtat = new ArrayList<int[][]>();
 	ModeleNbCoup modele;
-	
+	boolean gameOver;
 	
 	public ModeleListe(ModeleNbCoup modele) {
 		this.modele = modele;
@@ -56,28 +56,35 @@ public class ModeleListe implements Modele{
 		gameOver(modele.getEtat());
 	}
 	
-	public boolean gameOver(int[][] etat){
-		for(int i=0;i<etat.length;i++) {
-			for(int j=0;j<etat[i].length;j++) {
-				if(etat[i][j]==3) {
-					return false;
+	public void gameOver(int[][] etat) {
+	    setGameOver(true);
+		for (int i = 0; i < etat.length; i++) {
+			for (int j = 0; j < etat[i].length; j++) {
+				if (etat[i][j] == 3) {
+					setGameOver(false);
+					break;
 				}
-	    	}	
-	    }	
-		Iterator it = listeEtat.iterator();
-		while(it.hasNext()) {
-			int[][] tmp = (int[][]) it.next();
-			System.out.println(" ");
-			for(int i = 0;i<tmp.length;i++) {
-				for(int j = 0;j<tmp[i].length;j++) {
-					System.out.print(tmp[i][j] + " / ");
-				}
-				System.out.println(" ");
-	   		}	
-	   	}
-	   	return true;
-	   }
+			}
+		}
+//		Iterator it = listeEtat.iterator();
+//		while (it.hasNext()) {
+//			int[][] tmp = (int[][]) it.next();
+//			System.out.println(" ");
+//			for (int i = 0; i < tmp.length; i++) {
+//				for (int j = 0; j < tmp[i].length; j++) {
+//					System.out.print(tmp[i][j] + " / ");
+//				}
+//				System.out.println(" ");
+//			}
+//		}
+	}
 
+	public boolean getGameOver(){
+		return gameOver;
+	}
+	public void setGameOver(boolean b){
+		gameOver=b;
+	}
 }
 
 

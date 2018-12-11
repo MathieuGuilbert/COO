@@ -1,7 +1,4 @@
 package sample;
-import java.util.*;
-
-import javafx.util.Pair;
 
 public class ModeleNbCoup implements Modele {
 

@@ -1,11 +1,8 @@
 package sample;
 
-import javafx.util.Pair;
-
+import javafx.scene.control.Alert;
 import java.io.IOException;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.*;
 
 public class Controleur implements Sujet {
     private static Controleur singleton;
@@ -57,6 +54,10 @@ public class Controleur implements Sujet {
         notifie();
     }
 
+    public boolean getGameOver() { return facadeModele.getGameOver();}
+    public void setGameOver(boolean b) { facadeModele.setGameOver(b);}
+
+
     public CommandeTabInt commandeGetEtat() {
         return new CommandeTabInt() {
             @Override
@@ -75,6 +76,12 @@ public class Controleur implements Sujet {
         };
     }
 
-
-
+//    Creer une fenetre popup
+    public void victory(){
+        Alert victoire = new Alert(Alert.AlertType.INFORMATION);
+        victoire.setTitle("Victoire");
+        victoire.setHeaderText("BRAVO");
+        victoire.setContentText("Vous avez réussis ce niveau en "+ facadeModele.nbCoup() +" déplacements");
+        victoire.showAndWait();
+    }
 }
