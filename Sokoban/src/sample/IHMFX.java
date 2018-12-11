@@ -12,12 +12,14 @@ import javafx.stage.Stage;
 public class IHMFX extends Application implements Observateur {
     VueIHMFX vue;
     VueNbCoupIHMFX vueNbCoup;
+    VuePousse vuePousse;
 
     public void actualise(){
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 vueNbCoup.dessine();
+                vuePousse.dessine();
                 vue.dessine();
             }
 
@@ -34,6 +36,8 @@ public class IHMFX extends Application implements Observateur {
         vue.gridPane.setAlignment(Pos.CENTER);
         vueNbCoup= new VueNbCoupIHMFX(controleur);
         vueNbCoup.label.setAlignment(Pos.CENTER);
+        vuePousse= new VuePousse(controleur);
+        vuePousse.label.setAlignment(Pos.CENTER);
 
         /* montage de la scene */
         MonteurScene monteurScene = new MonteurScene();
@@ -42,6 +46,7 @@ public class IHMFX extends Application implements Observateur {
                 setCentre(vue.gridPane).
                 ajoutBas(controleurIHMFX.reset).
                 ajoutBas(vueNbCoup.label).
+                ajoutBas(vuePousse.label).
                 setLargeur(1000).
                 setHauteur(750).
                 retourneScene();

@@ -26,7 +26,7 @@ public class ModeleConcret implements Modele {
     }
 
     //Déplace Soko d'une case à droite en changeant les données du tableau etat
-    public void right() {
+    public boolean right() {
         Pair<Integer,Integer> pos = positionSoko();
         if (pos!=null) {
             int x = pos.getKey(); int y = pos.getValue();
@@ -35,60 +35,72 @@ public class ModeleConcret implements Modele {
 //              Si la case à droite est vide (sol)
                     if (etat[x+1][y]==1) {
                         etat[x][y] = 1; etat[x + 1][y] = 0;
+                        return false;
                     }
 //              Si la case à droite est un point
                     if (etat[x+1][y]==4) {
                         etat[x][y] = 1; etat[x + 1][y] = 6;
+                        return false;
                     }
 //              Si la case à droite est une caisse et la case à droite+2 est vide (sol)
                     if (etat[x+1][y]==3 && etat[x+2][y]==1) {
                         etat[x][y] = 1;etat[x+1][y]=0;etat[x+2][y]=3;
+                        return true;
                     }
 //              Si la case à droite est une caisse et la case à droite+2 est un point
                     if (etat[x+1][y]==3 && etat[x+2][y]==4) {
                         etat[x][y] = 1;etat[x+1][y]=0;etat[x+2][y]=5;
+                        return true;
                     }
-//              Si la case à droite est une caisse+point et la case à gauche+2 est un point
+//              Si la case à droite est une caisse+point et la case à droite+2 est un point
                     if (etat[x+1][y]==5 && etat[x+2][y]==4) {
                         etat[x][y]=1;etat[x+1][y]=6;etat[x+2][y]=5;
+                        return true;
                     }
-//              Si la case à droite est une caisse+point et la case à gauche+2 est vide (sol)
+//              Si la case à droite est une caisse+point et la case à droite+2 est vide (sol)
                     if (etat[x+1][y]==5 && etat[x+2][y]==1) {
                         etat[x][y]=1;etat[x+1][y]=6;etat[x+2][y]=3;
+                        return true;
                     }
                 }
                 if (etat[x][y]==6){
 //              Si la case à droite est vide (sol)
                     if (etat[x+1][y]==1) {
                         etat[x][y] = 4; etat[x + 1][y] = 0;
+                        return false;
                     }
 //              Si la case à droite est un point
                     if (etat[x+1][y]==4) {
                         etat[x][y] = 4; etat[x + 1][y] = 6;
+                        return false;
                     }
 //              Si la case à droite est une caisse et la case à droite+2 est vide (sol)
                     if (etat[x+1][y]==3 && etat[x+2][y]==1) {
                         etat[x][y] = 4;etat[x+1][y]=0;etat[x+2][y]=3;
+                        return true;
                     }
 //              Si la case à droite est une caisse et la case à droite+2 est un point
                     if (etat[x+1][y]==3 && etat[x+2][y]==4) {
                         etat[x][y] = 4;etat[x+1][y]=0;etat[x+2][y]=5;
+                        return true;
                     }
-//              Si la case à droite est une caisse+point et la case à gauche+2 est un point
+//              Si la case à droite est une caisse+point et la case à droite+2 est un point
                     if (etat[x+1][y]==5 && etat[x+2][y]==4) {
                         etat[x][y] = 4;etat[x+1][y]=6;etat[x+2][y]=5;
+                        return true;
                     }
-//              Si la case à droite est une caisse+point et la case à gauche+2 est vide (sol)
+//              Si la case à droite est une caisse+point et la case à droite+2 est vide (sol)
                     if (etat[x+1][y]==5 && etat[x+2][y]==1) {
                         etat[x][y] = 4;etat[x+1][y]=6;etat[x+2][y]=3;
+                        return true;
                     }
                 }
-
             }
         }
+        return false;
     }
     //Déplace Soko d'une case à gauche en changeant les données du tableau etat
-    public void left() {
+    public boolean left() {
         Pair<Integer,Integer> pos = positionSoko();
         if (pos!=null) {
             int x = pos.getKey(); int y = pos.getValue();
@@ -97,59 +109,72 @@ public class ModeleConcret implements Modele {
 //              Si la case à gauche est vide (sol)
                     if (etat[x-1][y] == 1) {
                         etat[x][y]=1; etat[x-1][y]=0;
+                        return false;
                     }
 //              Si la case à gauche est un point
                     if (etat[x-1][y] == 4) {
                         etat[x][y]=1; etat[x-1][y]=6;
+                        return false;
                     }
 //              Si la case à gauche est une caisse et la case à gauche+2 est vide (sol)
                     if (etat[x-1][y]==3 && etat[x-2][y]==1) {
                         etat[x][y] = 1;etat[x-1][y]=0;etat[x-2][y]=3;
+                        return true;
                     }
 //              Si la case à gauche est une caisse et la case à gauche+2 est un point
                     if (etat[x-1][y]==3 && etat[x-2][y]==4) {
                         etat[x][y] = 1;etat[x-1][y]=0;etat[x-2][y]=5;
+                        return true;
                     }
 //              Si la case à gauche est une caisse+point et la case à gauche+2 est un point
                     if (etat[x-1][y]==5 && etat[x-2][y]==4) {
                         etat[x][y] = 1;etat[x-1][y]=6;etat[x-2][y]=5;
+                        return true;
                     }
 //              Si la case à gauche est une caisse+point et la case à gauche+2 est vide (sol)
                     if (etat[x-1][y]==5 && etat[x-2][y]==1) {
                         etat[x][y] = 1;etat[x-1][y]=6;etat[x-2][y]=3;
+                        return true;
                     }
                 }
                 if (etat[x][y]==6){
 //              Si la case à gauche est vide (sol)
                     if (etat[x-1][y] == 1) {
                         etat[x][y]=4; etat[x-1][y]=0;
+                        return false;
                     }
 //              Si la case à gauche est un point
                     if (etat[x-1][y] == 4) {
                         etat[x][y]=4; etat[x-1][y]=6;
+                        return false;
                     }
 //              Si la case à gauche est une caisse et la case à gauche+2 est vide (sol)
                     if (etat[x-1][y]==3 && etat[x-2][y]==1) {
                         etat[x][y] = 4;etat[x-1][y]=0;etat[x-2][y]=3;
+                        return true;
                     }
 //              Si la case à gauche est une caisse et la case à gauche+2 est un point
                     if (etat[x-1][y]==3 && etat[x-2][y]==4) {
                         etat[x][y] = 4;etat[x-1][y]=0;etat[x-2][y]=5;
+                        return true;
                     }
 //              Si la case à gauche est une caisse+point et la case à gauche+2 est un point
                     if (etat[x-1][y]==5 && etat[x-2][y]==4) {
                         etat[x][y] = 4;etat[x-1][y]=6;etat[x-2][y]=5;
+                        return true;
                     }
 //              Si la case à gauche est une caisse+point et la case à gauche+2 est vide (sol)
                     if (etat[x-1][y]==5 && etat[x-2][y]==1) {
                         etat[x][y] = 4;etat[x-1][y]=6;etat[x-2][y]=3;
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
     //Déplace Soko d'une case en haut en changeant les données du tableau etat
-    public void up() {
+    public boolean up() {
         Pair<Integer,Integer> pos = positionSoko();
         if (pos!=null) {
             int x = pos.getKey(); int y = pos.getValue();
@@ -158,59 +183,72 @@ public class ModeleConcret implements Modele {
 //              Si la case en haut est vide (sol)
                     if (etat[x][y-1]==1) {
                         etat[x][y]=1; etat[x][y-1]=0;
+                        return false;
                     }
 //              Si la case en haut est un point
                     if (etat[x][y-1]==4) {
                         etat[x][y]=1; etat[x][y-1]=6;
+                        return false;
                     }
 //              Si la case en haut est une caisse et la case en haut+2 est vide (sol)
                     if (etat[x][y-1]==3 && etat[x][y-2]==1) {
                         etat[x][y]=1;etat[x][y-1]=0;etat[x][y-2]=3;
+                        return true;
                     }
 //              Si la case en haut est une caisse et la case en haut+2 est un point
                     if (etat[x][y-1]==3 && etat[x][y-2]==4) {
                         etat[x][y]=1;etat[x][y-1]=0;etat[x][y-2]=5;
+                        return true;
                     }
 //              Si la case en haut est une caisse+point et la case en haut+2 est un point
                     if (etat[x][y-1]==5 && etat[x][y-2]==4) {
                         etat[x][y]=1;etat[x][y-1]=6;etat[x][y-2]=5;
+                        return true;
                     }
 //              Si la case en haut est une caisse+point et la case en haut+2 est vide (sol)
                     if (etat[x][y-1]==5 && etat[x][y-2]==1) {
                         etat[x][y] = 1;etat[x][y-1]=6;etat[x][y-2]=3;
+                        return true;
                     }
                 }
                 if (etat[x][y]==6){
 //              Si la case en haut est vide (sol)
                     if (etat[x][y-1]==1) {
                         etat[x][y]=4; etat[x][y-1]=0;
+                        return false;
                     }
 //              Si la case en haut est un point
                     if (etat[x][y-1]==4) {
                         etat[x][y]=4; etat[x][y-1]=6;
+                        return false;
                     }
 //              Si la case en haut est une caisse et la case en haut+2 est vide (sol)
                     if (etat[x][y-1]==3 && etat[x][y-2]==1) {
                         etat[x][y]=4;etat[x][y-1]=0;etat[x][y-2]=3;
+                        return true;
                     }
 //              Si la case en haut est une caisse et la case en haut+2 est un point
                     if (etat[x][y-1]==3 && etat[x][y-2]==4) {
                         etat[x][y]=4;etat[x][y-1]=0;etat[x][y-2]=5;
+                        return true;
                     }
 //              Si la case en haut est une caisse+point et la case en haut+2 est un point
                     if (etat[x][y-1]==5 && etat[x][y-2]==4) {
                         etat[x][y]=4;etat[x][y-1]=6;etat[x][y-2]=5;
+                        return true;
                     }
 //              Si la case en haut est une caisse+point et la case en haut+2 est vide (sol)
                     if (etat[x][y-1]==5 && etat[x][y-2]==1) {
                         etat[x][y]=4;etat[x][y-1]=6;etat[x][y-2]=3;
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
     //Déplace Soko d'une case en bas en changeant les données du tableau etat
-    public void down() {
+    public boolean down() {
         Pair<Integer,Integer> pos = positionSoko();
         if (pos!=null) {
             int x = pos.getKey(); int y = pos.getValue();
@@ -219,56 +257,69 @@ public class ModeleConcret implements Modele {
 //              Si la case en bas est vide (sol)
                     if (etat[x][y+1]==1) {
                         etat[x][y]=1; etat[x][y+1]=0;
+                        return false;
                     }
 //              Si la case en bas est un point
                     if (etat[x][y+1]==4) {
                         etat[x][y]=1; etat[x][y+1]=6;
+                        return false;
                     }
 //              Si la case en bas est une caisse et la case en bas+2 est vide (sol)
                     if (etat[x][y+1]==3 && etat[x][y+2]==1) {
                         etat[x][y]=1;etat[x][y+1]=0;etat[x][y+2]=3;
+                        return true;
                     }
 //              Si la case en bas est une caisse et la case en bas+2 est un point
                     if (etat[x][y+1]==3 && etat[x][y+2]==4) {
                         etat[x][y]=1;etat[x][y+1]=0;etat[x][y+2]=5;
+                        return true;
                     }
 //              Si la case en bas est une caisse+point et la case en bas+2 est un point
                     if (etat[x][y+1]==5 && etat[x][y+2]==4) {
                         etat[x][y]=1;etat[x][y+1]=6;etat[x][y+2]=5;
+                        return true;
                     }
 //              Si la case en bas est une caisse+point et la case en bas+2 est vide (sol)
                     if (etat[x][y+1]==5 && etat[x][y+2]==1) {
                         etat[x][y]=1;etat[x][y+1]=6;etat[x][y+2]=3;
+                        return true;
                     }
                 }
                 if (etat[x][y]==6){
 //              Si la case en bas est vide (sol)
                     if (etat[x][y+1]==1) {
                         etat[x][y]=4; etat[x][y+1]=0;
+                        return false;
                     }
 //              Si la case en bas est un point
                     if (etat[x][y+1]==4) {
                         etat[x][y]=4; etat[x][y+1]=6;
+                        return false;
                     }
 //              Si la case en bas est une caisse et la case en bas+2 est vide (sol)
                     if (etat[x][y+1]==3 && etat[x][y+2]==1) {
                         etat[x][y]=4;etat[x][y+1]=0;etat[x][y+2]=3;
+                        return true;
                     }
 //              Si la case en bas est une caisse et la case en bas+2 est un point
                     if (etat[x][y+1]==3 && etat[x][y+2]==4) {
                         etat[x][y]=4;etat[x][y+1]=0;etat[x][y+2]=5;
+                        return true;
                     }
 //              Si la case en bas est une caisse+point et la case en bas+2 est un point
                     if (etat[x][y+1]==5 && etat[x][y+2]==4) {
                         etat[x][y]=4;etat[x][y+1]=6;etat[x][y+2]=5;
+                        return true;
                     }
 //              Si la case en bas est une caisse+point et la case en bas+2 est vide (sol)
                     if (etat[x][y+1]==5 && etat[x][y+2]==1) {
                         etat[x][y]=4;etat[x][y+1]=6;etat[x][y+2]=3;
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
 
     

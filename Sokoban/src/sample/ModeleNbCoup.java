@@ -22,24 +22,24 @@ public class ModeleNbCoup implements Modele {
         return modele.getEtat();
     }
 
-    public void up() {
+    public boolean up() {
         nbCoup++;
-        this.modele.up();
+        return this.modele.up();
     }
 
-    public void down() {
+    public boolean down() {
         nbCoup++;
-        this.modele.down();
+        return this.modele.down();
     }
 
-    public void right() {
+    public boolean right() {
         nbCoup++;
-        this.modele.right();
+        return this.modele.right();
     }
 
-    public void left() {
+    public boolean left() {
         nbCoup++;
-        this.modele.left();
+        return this.modele.left();
     }
 
 }

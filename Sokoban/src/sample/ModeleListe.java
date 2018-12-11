@@ -1,19 +1,14 @@
 package sample;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ModeleListe implements Modele{
 	ArrayList<int[][]> listeEtat = new ArrayList<int[][]>();
-	ModeleNbCoup modele;
+	Modele modele;
 	boolean gameOver;
 	
-	public ModeleListe(ModeleNbCoup modele) {
+	public ModeleListe(Modele modele) {
 		this.modele = modele;
-	}
-
-	public int getNbCoup(){
-		return modele.getNbCoup();
 	}
 
 	public ArrayList<int[][]> getListeEtat() {
@@ -32,28 +27,32 @@ public class ModeleListe implements Modele{
 		return modele.getEtat();
 	}
 	
-	public void up() {
+	public boolean up() {
 		addList(this.modele.getEtat().clone());
-		this.modele.up();
+		boolean up = this.modele.up();
 		gameOver(modele.getEtat());
+		return up;
 	}
 	
-	public void down() {
+	public boolean down() {
 		addList(this.modele.getEtat().clone());
-		this.modele.down();
+		boolean down = this.modele.down();
 		gameOver(modele.getEtat());
+		return down;
 	}
 	
-	public void right() {
+	public boolean right() {
 		addList(this.modele.getEtat().clone());
-		this.modele.right();
+		boolean right = this.modele.right();
 		gameOver(modele.getEtat());
+		return right;
 	}
 	
-	public void left() {
+	public boolean left() {
 		addList(this.modele.getEtat().clone());
-		this.modele.left();
+		boolean left = this.modele.left();
 		gameOver(modele.getEtat());
+		return left;
 	}
 	
 	public void gameOver(int[][] etat) {

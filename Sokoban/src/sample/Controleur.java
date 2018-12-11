@@ -76,12 +76,21 @@ public class Controleur implements Sujet {
         };
     }
 
+    public CommandeInt commandePousse() {
+        return new CommandeInt() {
+            @Override
+            public int exec() {
+                return facadeModele.nbPousse();
+            }
+        };
+    }
+
 //    Creer une fenetre popup
     public void victory(){
         Alert victoire = new Alert(Alert.AlertType.INFORMATION);
         victoire.setTitle("Victoire");
-        victoire.setHeaderText("BRAVO");
-        victoire.setContentText("Vous avez réussis ce niveau en "+ facadeModele.nbCoup() +" déplacements");
+        victoire.setHeaderText("BRAVO    \\^.^/");
+        victoire.setContentText("Vous avez réussis ce niveau en "+ facadeModele.nbCoup() +" déplacements et en "+ facadeModele.nbPousse() +" poussees");
         victoire.showAndWait();
     }
 }

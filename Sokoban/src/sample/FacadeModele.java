@@ -1,7 +1,9 @@
 package sample;
 
 public class FacadeModele {;
-    ModeleListe modele= new ModeleListe( new ModeleNbCoup( new ModeleConcret()) );
+    ModeleNbCoup modeleNbCoup= new ModeleNbCoup( new ModeleConcret());
+    ModelePousse modelePousse= new ModelePousse(modeleNbCoup);
+    ModeleListe modele= new ModeleListe( modelePousse);
     
     public int[][] getEtat() { return modele.getEtat(); }
 
@@ -17,7 +19,8 @@ public class FacadeModele {;
     public void setGameOver(boolean b) { modele.setGameOver(b);}
 
     public int nbCoup() {
-        return modele.getNbCoup();
+        return modeleNbCoup.getNbCoup();
     }
 
+    public int nbPousse() {return modelePousse.getNbPousse(); }
 }
