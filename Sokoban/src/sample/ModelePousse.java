@@ -21,9 +21,13 @@ public class ModelePousse implements Modele{
     public int[][] getEtat() {
         return modele.getEtat();
     }
+    
+    public void setEtat(int[][] etat) {
+		modele.setEtat(etat);
+	}
 
     public boolean up() {
-        if(this.modele.up()){  //si pousse c'est vrai
+        if(this.modele.up()){  //si pousse est vrai
             nbPousse++;
         }
         return true;

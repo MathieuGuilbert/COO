@@ -22,6 +22,10 @@ public class ModeleNbCoup implements Modele {
         return modele.getEtat();
     }
 
+    public void setEtat(int[][] etat) {
+		modele.setEtat(etat);
+	}
+    
     public boolean up() {
         nbCoup++;
         return this.modele.up();
@@ -41,5 +45,12 @@ public class ModeleNbCoup implements Modele {
         nbCoup++;
         return this.modele.left();
     }
-
+    
+    public void undo() {
+    	nbCoup++;
+    }
+    
+    public void redo() {
+    	nbCoup++;
+    }
 }

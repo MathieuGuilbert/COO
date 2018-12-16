@@ -53,7 +53,16 @@ public class Controleur implements Sujet {
         facadeModele.reset();
         notifie();
     }
+    
+    public void undo() {
+        facadeModele.undo();
+        notifie();
+    }
 
+    public void redo() {
+        facadeModele.redo();
+        notifie();
+    }
     public boolean getGameOver() { return facadeModele.getGameOver();}
     public void setGameOver(boolean b) { facadeModele.setGameOver(b);}
 

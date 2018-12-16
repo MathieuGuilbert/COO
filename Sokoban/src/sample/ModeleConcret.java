@@ -11,9 +11,15 @@ public class ModeleConcret implements Modele {
                            {1,1,1,1,1,2,1,1,1,2,1},{1,1,1,1,1,2,4,4,4,2,1},{1,1,1,1,1,2,4,4,4,2,1},{1,1,1,1,1,2,2,2,2,2,1}};*/
             {{2,2,2,2,2},{2,1,1,1,2},{2,1,0,1,2},{2,1,3,1,2},{2,1,4,1,2},{2,2,2,2,2}};
 
-    public int[][] getEtat() {return etat; }
+    public int[][] getEtat() {
+    	return etat.clone(); 
+    }
     
-    //Retourne la position de soko dans le tableau etat sous la forme <x,y> (x = colonne, y = y = ligne)
+    public void setEtat(int[][] etat) {
+		this.etat = etat;
+	}
+
+	//Retourne la position de soko dans le tableau etat sous la forme <x,y> (x = colonne, y = y = ligne)
     public Pair<Integer, Integer> positionSoko(){
         for(int i=0; i<etat.length; i++){
             for(int j=0; j<etat[i].length; j++) {
@@ -321,6 +327,7 @@ public class ModeleConcret implements Modele {
         }
         return false;
     }
+
 
     
     @Override
