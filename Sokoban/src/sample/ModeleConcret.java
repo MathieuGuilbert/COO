@@ -11,8 +11,18 @@ public class ModeleConcret implements Modele {
                            {1,1,1,1,1,2,1,1,1,2,1},{1,1,1,1,1,2,4,4,4,2,1},{1,1,1,1,1,2,4,4,4,2,1},{1,1,1,1,1,2,2,2,2,2,1}};*/
             {{2,2,2,2,2},{2,1,1,1,2},{2,1,0,1,2},{2,1,3,1,2},{2,1,4,1,2},{2,2,2,2,2}};
 
-    public int[][] getEtat() {
-    	return etat.clone(); 
+    public int[][] getEtat(){
+    	return cloneTab(etat);
+    }
+    
+    public int[][] cloneTab(int[][] etatBis){
+    	int[][] tmp = new int[etat.length][etat[0].length];
+    	for(int i=0; i < etatBis.length; ++i) {
+    		for(int j=0; j < etatBis[i].length; j++) {
+        		tmp[i][j] = etat[i][j];
+    		}
+    	}
+    	return tmp;
     }
     
     public void setEtat(int[][] etat) {

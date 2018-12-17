@@ -14,7 +14,7 @@ public class FacadeModele {;
     public void up() { modele.up(); }
     public void down() { modele.down(); }
     public void undo() { 
-    	modele.undo(); 
+    	modele.undo();
     	modeleNbCoup.undo();
     }
     public void redo() {

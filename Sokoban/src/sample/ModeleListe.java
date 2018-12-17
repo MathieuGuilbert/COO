@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class ModeleListe implements Modele{
 	ArrayList<int[][]> listeEtat = new ArrayList<int[][]>(); //liste contenant les etats
 	Modele modele;
-	int cpt = 1; // indice d'iteration liste
+	int cpt = 0; // indice d'iteration liste
 	boolean gameOver; 
 	
 	public ModeleListe(Modele modele) {
@@ -22,8 +22,10 @@ public class ModeleListe implements Modele{
     	listeEtat.add(0,etat);
     }
 	
-	public void reset() {
+	public void reset() 
+	{
 		modele.reset();
+		this.cpt = 0;
 		listeEtat.clear();
 	}
 	
@@ -36,43 +38,43 @@ public class ModeleListe implements Modele{
 	}
 	
 	public boolean up() {
-		//testTab(this.modele.getEtat().clone());
-		addList(this.modele.getEtat());
 		boolean up = this.modele.up();
-		gameOver(modele.getEtat());
 		cleanList();
+		addList(this.modele.getEtat());
+		gameOver(modele.getEtat());
 		return up;
 	}
 	
 	public boolean down() {
-		addList(this.modele.getEtat());
 		boolean down = this.modele.down();
-		gameOver(modele.getEtat());
 		cleanList();
+		addList(this.modele.getEtat());
+		gameOver(modele.getEtat());
 		return down;
 	}
 	
 	public boolean right() {
-		addList(this.modele.getEtat());
 		boolean right = this.modele.right();
-		gameOver(modele.getEtat());
 		cleanList();
+		addList(this.modele.getEtat());
+		gameOver(modele.getEtat());
 		return right;
 	}
 	
 	public boolean left() {
-		addList(this.modele.getEtat());
 		boolean left = this.modele.left();
-		gameOver(modele.getEtat());
 		cleanList();
+		addList(this.modele.getEtat());
+		gameOver(modele.getEtat());
 		return left;
 	}
 	
 	public void cleanList() {
-		for(int i = 0; i<this.cpt-1 && this.cpt>1; this.cpt++) {
-			listeEtat.remove(i);
+		while ( cpt!=0 ) 
+		{
+			listeEtat.remove(cpt-1);
+			--cpt;
 		}
-		this.cpt=1;
 	}
 	
 	public void gameOver(int[][] etat) {
@@ -98,20 +100,21 @@ public class ModeleListe implements Modele{
 //		}
 	}
 
-	public void undo() {	
-		//testTab(modele.getEtat());
-		//testTab(listeEtat.get(cpt));
-		testList(listeEtat);
-		modele.setEtat(listeEtat.get(cpt).clone());
-		++cpt;
-		//testTab(modele.getEtat());
+	public void undo() {
+		if ( cpt+1 < listeEtat.size() )
+		{
+			testList(listeEtat);
+			modele.setEtat(listeEtat.get(cpt+1));
+			++cpt;
+		}
 	}
 	
 	public void redo() {
-		if(this.cpt>1) {
-			modele.setEtat(listeEtat.get(cpt-2));
+		if(cpt!=0) {
+			testList(listeEtat);
+			modele.setEtat(listeEtat.get(cpt-1));
+			--cpt;
 		}
-		--cpt;
 	}
 	
 	public boolean getGameOver(){
