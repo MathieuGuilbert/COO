@@ -1,4 +1,12 @@
 # COO
+
+FINIR RAPPORT (voir note de gittage)
+faire replay-timelapse
+.jar fonctionnel
+
+
+
+
 Projet de COO 
 
 Reste à faire 
